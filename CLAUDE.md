@@ -55,9 +55,25 @@ prefix, five words or fewer.
 One bullet, one file, one folder. Before creating a topic file, check the
 relevant folder README — the filename is already chosen there.
 
+### Adding a topic
+
+When the curriculum gains a bullet:
+
+1. Add the bullet to the root `README.md`, under the phase it belongs to.
+2. Add one link for it in exactly one folder README — the phase folder, or the
+   subsection folder for Phases 2 and 3. The link text is the bullet verbatim,
+   minus nothing and reworded nowhere.
+3. Choose a slug that does not already exist anywhere under `docs/`. Slugs are
+   globally unique, not unique per folder.
+
+Two bullets covering adjacent ground get two files with distinct slugs that link to
+each other. They are never merged. One bullet, one file, one folder — that
+correspondence is what makes this tree trustworthy, and it is only as good as the
+last topic added.
+
 ## Topic template
 
-Every topic doc uses this frontmatter and these sections, in this order:
+Every topic doc under a phase folder uses this frontmatter and these sections, in this order:
 
 ```markdown
 ---
@@ -82,6 +98,14 @@ updated: YYYY-MM-DD
 ## Sources
 ```
 
+`phase:` is the numbered phase folder — `02-data`, not `performance`. A topic inside a
+Phase 2 or Phase 3 subsection adds a second field naming that subfolder:
+
+```
+phase: 02-data
+section: performance
+```
+
 `Smallest example` carries Python and TypeScript/Node snippets where both apply.
 
 Leave a section empty rather than padding it. An empty **Tradeoffs** or **Open
@@ -100,6 +124,23 @@ README is a curriculum outline, not a tracker — do not add checkboxes back to 
 
 At the end of a session, update `status` and set `updated` to today's date.
 
+### Capstone notes
+
+`docs/capstones/` holds notes on builds, not topics, so it uses a different shape.
+Frontmatter is `phase: capstones` with the same `status:` and `updated:` fields, and
+the sections are:
+
+```
+## What I built
+## Design decisions and why
+## What went wrong
+## Measured result
+## Sources
+```
+
+The project code itself lives in its own repository. What belongs here is the
+reasoning and the evidence — the decisions, the failures, and the numbers.
+
 ## How to teach here
 
 The failure mode of AI-assisted learning is fluent summaries mistaken for
@@ -114,6 +155,12 @@ understanding. Accordingly:
 - **Flag version-specific claims as unverified.** Library APIs, defaults, and
   flags drift. Any concrete claim about a version belongs in **Open questions /
   to verify** unless it was checked against primary docs in this session.
+- **Plant the bug rather than explaining the pitfall.** Show a realistic
+  implementation with a subtle fault in it and let it be found before naming it.
+  Recognising a correct explanation is not the same skill as spotting a wrong
+  implementation.
+- **Ask "what would change your answer?"** after any recommendation, so the
+  conditions it depends on stay visible.
 - **Quiz with scenarios, not definitions,** and do not reveal the answer until
   an answer has been committed to.
 - **Say "I don't know."** A gap named is worth more than a confident paragraph.
