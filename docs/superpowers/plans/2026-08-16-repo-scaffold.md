@@ -1368,8 +1368,14 @@ git commit -m "docs: remove README checkboxes in favor of frontmatter status"
 git log --oneline
 ```
 
-Expected: thirteen commits on top of `e62d7bf initial commit` — one per task
-(eleven) plus the spec and plan commits.
+Expected: sixteen commits on top of `e62d7bf initial commit`, composed of:
+
+- 11 task commits, one per task, this task's included
+- 2 documentation commits — the spec and this plan
+- 3 controller correction commits: `e5a2987` (four pre-flight plan defects), `171d3aa`
+  (two miscounted verification expectations), and one amending this very expectation
+
+Fifteen of those exist before this task; this task's commit is the sixteenth.
 
 ---
 
