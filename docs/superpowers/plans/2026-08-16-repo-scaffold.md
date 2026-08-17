@@ -95,7 +95,7 @@ test -f .gitignore && echo PRESENT || echo ABSENT
 grep -c . .gitignore
 ```
 
-Expected: `PRESENT` then `18` (non-blank lines: 6 comments plus 12 patterns).
+Expected: `PRESENT` then `16` (non-blank lines: 6 comments plus 10 patterns).
 
 - [ ] **Step 4: Confirm no language toolchain patterns crept in**
 
@@ -276,7 +276,8 @@ test -f CLAUDE.md && echo PRESENT || echo ABSENT
 grep -c '^status\|^- `not-started`\|^- `learning`\|^- `practiced`' CLAUDE.md
 ```
 
-Expected: `PRESENT` then `3` (the three status bullets).
+Expected: `PRESENT` then `4` — the three status bullets plus the `status:` line
+inside the frontmatter of the topic template, which also starts at column 0.
 
 - [ ] **Step 4: Confirm the template's seven sections are all present**
 
