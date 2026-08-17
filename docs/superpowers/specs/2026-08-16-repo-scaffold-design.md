@@ -7,7 +7,7 @@
 
 `learn-backend` is a personal study repository for AI-assisted learning of backend
 engineering. The root `README.md` already holds the curriculum: twelve phases
-(Phase 0–11) plus six capstone projects, roughly 350 topic bullets, each scoped to
+(Phase 0–11) plus six capstone projects, 265 topic bullets, each scoped to
 one 30–90 minute study session.
 
 This design defines the repository scaffold — folder structure, `.gitignore`, and
@@ -37,7 +37,7 @@ Out of scope:
 | Doc granularity | One file per topic bullet | A whole topic fits in an AI context window; git history shows what was studied when |
 | Code in repo | Docs only, snippets inline in fenced blocks | No toolchain to maintain; capstones live elsewhere |
 | Topic structure | Fixed template mirroring the root README's tutor ladder | Required sections make a shallow doc visibly incomplete |
-| Scaffold depth | Folders and folder READMEs now; topic files created when studied | Navigable tree without 350 empty files diluting search and history |
+| Scaffold depth | Folders and folder READMEs now; topic files created when studied | Navigable tree without 265 empty files diluting search and history |
 | Progress tracking | Frontmatter `status:` is canonical | One place to edit; greppable; no drift between doc and dashboard |
 | Tree depth | Nest only where the root README nests | The curriculum is already the taxonomy; inventing groups would drift from it |
 
