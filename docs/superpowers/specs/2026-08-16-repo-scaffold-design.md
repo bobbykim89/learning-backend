@@ -177,9 +177,14 @@ scratch/
 
 # Claude local settings
 .claude/settings.local.json
+
+# Subagent-driven development workspace
+.superpowers/
 ```
 
 `scratch/` is the documented location for throwaway local experiments.
+`.superpowers/` holds the execution ledger and review artifacts, which are scratch
+state rather than repository content.
 
 ## Verification
 

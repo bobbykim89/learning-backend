@@ -36,6 +36,7 @@ Run all commands from the repository root, `/mnt/projects/learn-backend`.
 - **Status vocabulary** is exactly `not-started`, `learning`, `practiced`. Nothing else.
 - **Every folder and subsection subfolder contains a `README.md`.** A folder with no file cannot be committed to git, so folders come into existence with their README, never as bare directories or `.gitkeep`.
 - **Do not create topic `.md` files.** Folder READMEs link to files that do not exist yet. That is intended, not a bug to fix.
+- **Only phase-level READMEs link to `CLAUDE.md`,** at `../../CLAUDE.md`. Subsection READMEs (Phase 2 and Phase 3) do not link it at all — from three levels deep the relative path differs, and the link adds nothing their parent README does not already carry.
 - **Do not edit the root `README.md`** except for the one `sed` in Task 11. Its wording is the curriculum and stays byte-identical apart from checkbox removal.
 
 ---
@@ -80,6 +81,9 @@ scratch/
 
 # Claude local settings
 .claude/settings.local.json
+
+# Subagent-driven development workspace
+.superpowers/
 ```
 
 - [ ] **Step 3: Run the verification command again**
@@ -91,7 +95,7 @@ test -f .gitignore && echo PRESENT || echo ABSENT
 grep -c . .gitignore
 ```
 
-Expected: `PRESENT` then `16` (non-blank lines: 5 comments plus 11 patterns).
+Expected: `PRESENT` then `18` (non-blank lines: 6 comments plus 12 patterns).
 
 - [ ] **Step 4: Confirm no language toolchain patterns crept in**
 
@@ -1309,10 +1313,16 @@ Run:
 grep -rhc '^- \[' docs --include=README.md | paste -sd+ | bc
 ```
 
-Expected: `277` — 265 topic links, plus the 12 section links in the Phase 2 and
-Phase 3 parent READMEs. If your Step 1 count differed from 265, expect that number
-plus 12 instead. A mismatch means a bullet was dropped or duplicated; find it by
-diffing the bullet text of the root README against the folder READMEs.
+Expected: `292`, composed of:
+
+- 265 topic links across the phase and subsection READMEs
+- 12 section links in the Phase 2 (7) and Phase 3 (5) parent READMEs
+- 15 links in `docs/README.md` — 12 phases, 1 capstone, 2 meta
+
+`docs/capstones/README.md` contributes 0 because its entries are a numbered list.
+If your Step 1 count differed from 265, expect that number plus 27 instead. A
+mismatch means a bullet was dropped or duplicated; find it by diffing the bullet
+text of the root README against the folder READMEs.
 
 - [ ] **Step 7: Verify every topic link matches the filename convention**
 
@@ -1321,11 +1331,12 @@ Run:
 ```bash
 find docs -name README.md -not -path 'docs/superpowers/*' -exec grep -ohP '\]\(\K[^)]+' {} + \
   | grep -vP '^[a-z0-9]+(-[a-z0-9]+)*\.md$' \
-  | grep -vP '^([a-z0-9-]+/README\.md|\.\./.*)$' || echo CLEAN
+  | grep -vP '^([a-z0-9-]+/README\.md|superpowers/(specs|plans)/|\.\./.*)$' || echo CLEAN
 ```
 
-Expected: `CLEAN`. The second `grep -v` allows subfolder links and the `../`
-relative links to `CLAUDE.md`, the root README, and cross-phase references.
+Expected: `CLEAN`. The second `grep -v` allows three legitimate shapes: subfolder
+`README.md` links, the two `superpowers/` directory links in `docs/README.md`, and
+`../` relative links to `CLAUDE.md`, the root README, and cross-phase references.
 
 - [ ] **Step 8: Verify no topic files were created by mistake**
 
