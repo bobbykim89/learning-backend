@@ -403,4 +403,4 @@ The failure mode of AI-assisted learning is receiving fluent summaries and mista
 
 **Guardrails:** ask for the failure modes and the operational cost of anything before adopting it. Ask "what would change your answer?" Verify anything version-specific against primary docs — library APIs and defaults drift, and confident-sounding detail is where models are least reliable.
 
-**Track it:** check boxes as you go, but only after you've built something with the concept, not after reading about it.
+**Track it:** set `status: practiced` in the topic doc's frontmatter, but only after you've built something with the concept, not after reading about it.

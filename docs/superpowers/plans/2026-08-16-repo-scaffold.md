@@ -1359,8 +1359,9 @@ looking identical. Piping through `grep .` converts "no output" into a non-zero 
 Run:
 
 ```bash
-find . -maxdepth 2 -name 'package.json' -o -maxdepth 2 -name 'pyproject.toml' \
-  -o -maxdepth 2 -name 'requirements.txt' -not -path './.git/*' | grep . || echo CLEAN
+find . -maxdepth 3 \( -name 'package.json' -o -name 'pyproject.toml' \
+  -o -name 'requirements.txt' -o -name '*.lock' -o -name 'Cargo.toml' \
+  -o -name 'go.mod' -o -name 'Makefile' \) -not -path './.git/*' | grep . || echo CLEAN
 ```
 
 Expected: `CLEAN`
@@ -1383,7 +1384,7 @@ git log --oneline e62d7bf..HEAD | grep -cE 'chore: add \.gitignore|docs: add (CL
 ```
 
 Expected: `11`. This execution also produced 2 documentation commits and 3 correction
-commits, for 16 in total — but that total is an artifact of this run, not a requirement.
+commits. The remaining commits are documentation and correction commits, whose count is an artifact of the run rather than a requirement.
 
 ---
 

@@ -83,6 +83,7 @@ docs/
   11-advanced/
   capstones/
   superpowers/specs/            (meta: design docs like this one; not curriculum)
+  superpowers/plans/            (meta: implementation plans; not curriculum)
 ```
 
 Every folder and subsection subfolder contains a `README.md` listing its topics as
@@ -97,7 +98,7 @@ number prefix, target five words or fewer:
 | Bullet | Filename |
 |---|---|
 | How B-tree indexes work; why an index is a sorted copy with a cost | `btree-indexes.md` |
-| Composite index column order, partial indexes, covering indexes, index-only scans | `composite-and-specialized-indexes.md` |
+| Composite index column order, partial indexes, covering indexes, index-only scans | `composite-and-partial-indexes.md` |
 | CAP and PACELC — stated precisely, not as a slogan | `cap-and-pacelc.md` |
 
 Each bullet maps to exactly one file, and each file lives in exactly one folder.
