@@ -1344,10 +1344,15 @@ Expected: `CLEAN`. The second `grep -v` allows three legitimate shapes: subfolde
 Run:
 
 ```bash
-find docs -name '*.md' -not -name README.md -not -path 'docs/superpowers/*' || echo NONE
+find docs -name '*.md' -not -name README.md -not -path 'docs/superpowers/*' | grep . || echo NONE
 ```
 
 Expected: `NONE`. Topic files are created when a topic is studied, not now.
+
+The `| grep .` is load-bearing: `find` exits 0 even when it matches nothing, so `find … ||
+echo NONE` would print nothing at all rather than `NONE`, leaving success and failure
+looking identical. Piping through `grep .` converts "no output" into a non-zero exit the
+`||` can catch.
 
 - [ ] **Step 9: Verify no toolchain files were added**
 
@@ -1368,14 +1373,17 @@ git commit -m "docs: remove README checkboxes in favor of frontmatter status"
 git log --oneline
 ```
 
-Expected: sixteen commits on top of `e62d7bf initial commit`, composed of:
+Expected: 11 task commits, one per task with this task's included, plus 2 documentation
+commits for the spec and this plan, plus however many correction commits the execution
+itself needed. Verify the part that is fixed rather than a single total, which drifts
+with every correction:
 
-- 11 task commits, one per task, this task's included
-- 2 documentation commits — the spec and this plan
-- 3 controller correction commits: `e5a2987` (four pre-flight plan defects), `171d3aa`
-  (two miscounted verification expectations), and one amending this very expectation
+```bash
+git log --oneline e62d7bf..HEAD | grep -cE 'chore: add \.gitignore|docs: add (CLAUDE|docs/|Phase|capstone)|docs: remove README checkboxes'
+```
 
-Fifteen of those exist before this task; this task's commit is the sixteenth.
+Expected: `11`. This execution also produced 2 documentation commits and 3 correction
+commits, for 16 in total — but that total is an artifact of this run, not a requirement.
 
 ---
 
