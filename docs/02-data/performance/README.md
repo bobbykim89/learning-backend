@@ -1,5 +1,7 @@
 # Performance
 
+Files are created when the topic is studied — see [CLAUDE.md](../../../CLAUDE.md).
+
 - [How B-tree indexes work; why an index is a sorted copy with a cost](btree-indexes.md)
 - [Composite index column order, partial indexes, covering indexes, index-only scans](composite-and-partial-indexes.md)
 - [Other index types: GIN, GiST, BRIN, hash — and when each applies](index-types.md)

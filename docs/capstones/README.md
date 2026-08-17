@@ -6,6 +6,8 @@ Project **code lives in a separate repository per project**. The files linked he
 hold notes and design decisions only — what was decided, what went wrong, what the
 measured result was.
 
+Files are created when the project is under way — see [CLAUDE.md](../../CLAUDE.md).
+
 1. [URL shortener with real constraints](url-shortener.md) — ID generation, caching, rate limiting, analytics via async writes. _(Phases 0, 2, 4)_
 2. [Multi-tenant task API](multi-tenant-task-api.md) — layered architecture with DI, RBAC, RLS, cursor pagination, OpenAPI, full test suite. _(Phases 1, 3, 5, 9)_
 3. [Payments-style ledger](payments-ledger.md) — double-entry accounting, transactional integrity, idempotency keys, exactly-once webhooks, reconciliation. _(Phases 2, 5, 6)_

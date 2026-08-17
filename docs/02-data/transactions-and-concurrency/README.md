@@ -1,5 +1,7 @@
 # Transactions and concurrency
 
+Files are created when the topic is studied — see [CLAUDE.md](../../../CLAUDE.md).
+
 - [ACID, concretely — what each letter buys you](acid.md)
 - [Isolation levels and their anomalies: dirty read, non-repeatable read, phantom, write skew](isolation-levels.md)
 - [MVCC in Postgres; bloat and `VACUUM`](mvcc-and-vacuum.md)

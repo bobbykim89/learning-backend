@@ -1,5 +1,7 @@
 # Authorization
 
+Files are created when the topic is studied — see [CLAUDE.md](../../../CLAUDE.md).
+
 - [RBAC, ABAC, ReBAC (Google Zanzibar model) — expressiveness vs complexity](authorization-models.md)
 - [Enforcement points: middleware vs service layer vs database (RLS)](enforcement-points.md)
 - [IDOR / broken object-level authorization — the most common real-world API vuln](broken-object-level-authorization.md)

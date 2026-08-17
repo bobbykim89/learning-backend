@@ -1,5 +1,7 @@
 # ORMs and access layers
 
+Files are created when the topic is studied — see [CLAUDE.md](../../../CLAUDE.md).
+
 - [What an ORM actually does: identity map, unit of work, change tracking, lazy loading](what-an-orm-does.md)
 - [The N+1 problem — detecting it, and eager loading strategies](n-plus-one.md)
 - [SQLAlchemy 2.0 (Core vs ORM), Prisma vs Drizzle vs Kysely vs TypeORM — tradeoffs](orm-landscape.md)

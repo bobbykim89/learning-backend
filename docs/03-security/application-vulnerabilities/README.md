@@ -1,5 +1,7 @@
 # Application vulnerabilities
 
+Files are created when the topic is studied — see [CLAUDE.md](../../../CLAUDE.md).
+
 - [OWASP API Security Top 10, worked through with concrete examples](owasp-api-top-10.md)
 - [Injection: SQL, NoSQL, command, template, LDAP — parameterization as the fix](injection.md)
 - [SSRF: metadata endpoint attacks, allowlists, DNS rebinding](ssrf.md)

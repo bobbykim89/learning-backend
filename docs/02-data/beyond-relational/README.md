@@ -1,5 +1,7 @@
 # Beyond relational
 
+Files are created when the topic is studied — see [CLAUDE.md](../../../CLAUDE.md).
+
 - [When a relational DB is the wrong tool (and how rarely that's true)](when-not-relational.md)
 - [Document stores (MongoDB/DynamoDB): access-pattern-first modeling, single-table design](document-stores.md)
 - [Key-value, wide-column, time-series, graph databases — the fit for each](datastore-families.md)

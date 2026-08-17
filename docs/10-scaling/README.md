@@ -21,3 +21,7 @@ Files are created when the topic is studied — see [CLAUDE.md](../../CLAUDE.md)
 - [Noisy neighbors, per-tenant isolation, fairness and prioritization](tenant-isolation-and-fairness.md)
 - [The monolith → services decision: coupling, team topology, transaction boundaries](monolith-to-services.md)
 - [Strangler fig migrations and extracting a service safely](strangler-fig-migration.md)
+
+> `rate-limiting-algorithms.md` and `distributed-rate-limiting.md` cover mechanism and
+> coordination; rate limiting as an abuse-prevention control lives in
+> [Phase 3 — Rate limiting and abuse prevention](../03-security/data-protection-and-operations/rate-limiting-as-security.md).

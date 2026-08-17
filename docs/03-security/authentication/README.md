@@ -1,5 +1,7 @@
 # Authentication
 
+Files are created when the topic is studied — see [CLAUDE.md](../../../CLAUDE.md).
+
 - [Password storage: Argon2id/bcrypt, salting, peppering, work factors, rehashing on login](password-storage.md)
 - [Session cookies vs JWTs: the real tradeoffs, and why "stateless" isn't free](sessions-vs-jwts.md)
 - [Cookie security: `HttpOnly`, `Secure`, `SameSite`, domain/path scoping](cookie-security.md)
